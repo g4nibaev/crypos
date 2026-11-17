@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Game</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .quiz-container {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border: 1px solid #333;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #2ecc71;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 12px;
+      font-size: 16px;
+      background-color: #2c2c2c;
+      color: #ffffff;
+      border: 1px solid #444;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.2s;
+    }
+    button:hover:not(:disabled) {
+      background-color: #3a3a3a;
+    }
+    button.correct {
+      background-color: #27ae60;
+      border-color: #2ecc71;
+    }
+    button.wrong {
+      background-color: #c0392b;
+      border-color: #e74c3c;
+    }
+    #next-btn {
+      margin-top: 20px;
+      background-color: #2ecc71;
+      color: #121212;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+    .progress {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz">
+  <div class="progress" id="progress">Savol 1 / 5</div>
+  <h2 id="question">Savol matni</h2>
+  <div class="options" id="options"></div>
+  <button id="next-btn" onclick="nextQuestion()">Keyingi savol</button>
+</div>
+
+<script>
+  const questions = [
+    {
+      q: "GitHub'da o'zgarishlarni saqlash buyrug'i qaysi?",
+      options: ["git push", "git commit", "git pull", "git clone"],
+      answer: 1
+    },
+    {
+      q: "HTML nima uchun ishlatiladi?",
+      options: ["Veb-sahifa tuzilmasini yaratish", "Ma'lumotlar bazasini boshqarish", "Server yaratish", "O'yin fizikasini hisoblash"],
+      answer: 0
+    },
+    {
+      q: "JavaScript'da o'zgarmas (konstanta) qaysi kalit so'z bilan e'lon qilinadi?",
+      options: ["var", "let", "const", "static"],
+      answer: 2
+    },
+    {
+      q: "CSS'da matn rangini o'zgartirish xususiyati qaysi?",
+      options: ["background-color", "font-style", "text-color", "color"],
+      answer: 3
+    },
+    {
+      q: "Python dasturlash tilining muallifi kim?",
+      options:
